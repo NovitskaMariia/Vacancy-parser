@@ -1,5 +1,5 @@
 # Telegram Bot for Vacancy Statistics
-This project is a Telegram bot designed to provide statistics on job vacancies from a specified source. The bot fetches vacancy data, stores it in an SQLite database, and allows users to retrieve and view statistics through a simple command. The bot also generates an Excel file with the statistics for the current day.
+This project is a Telegram bot designed to provide statistics on job vacancies from a robota.ua with keyword "junior". The bot fetches vacancy data, stores it in an SQLite database, and allows users to retrieve and view statistics through a simple command. The bot also generates an Excel file with the statistics for the current day.
 
 Features
  - Fetch Vacancy Data: The bot retrieves the latest job vacancy data from a specified source.
