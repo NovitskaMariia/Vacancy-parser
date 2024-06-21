@@ -1,0 +1,82 @@
+API_TOKEN = "Your token from BotFather here"
+
+DATA_FOR_REQUEST = {
+    "operationName": "getPublishedVacanciesList",
+    "query": """query getPublishedVacanciesList($filter: PublishedVacanciesFilterInput!, $pagination: PublishedVacanciesPaginationInput!, $sort: PublishedVacanciesSortType!, $isBrowser: Boolean!) {
+                  publishedVacancies(filter: $filter, pagination: $pagination, sort: $sort) {
+                    totalCount
+                    items {
+                      ...PublishedVacanciesItem
+                      __typename
+                    }
+                    __typename
+                  }
+                }
+                fragment PublishedVacanciesItem on Vacancy {
+                  id
+                  schedules {
+                    id
+                    __typename
+                  }
+                  title
+                  description
+                  sortDateText
+                  hot
+                  designBannerUrl
+                  isPublicationInAllCities
+                  badges {
+                    name
+                    __typename
+                  }
+                  salary {
+                    amount
+                    comment
+                    amountFrom
+                    amountTo
+                    __typename
+                  }
+                  company {
+                    id
+                    logoUrl
+                    name
+                    honors {
+                      badge {
+                        iconUrl
+                        tooltipDescription
+                        locations
+                        isFavorite
+                        __typename
+                      }
+                      __typename
+                    }
+                    __typename
+                  }
+                  city {
+                    id
+                    name
+                    __typename
+                  }
+                  showProfile
+                  seekerFavorite @include(if: $isBrowser) {
+                    isFavorite
+                    __typename
+                  }
+                  seekerDisliked @include(if: $isBrowser) {
+                    isDisliked
+                    __typename
+                  }
+                  formApplyCustomUrl
+                  anonymous
+                  isActive
+                  publicationType
+                  __typename
+                }""",
+    "variables": {
+        "filter": {
+            "keywords": "junior",
+        },
+        "pagination": {"count": 40, "page": 0},
+        "sort": "BY_VIEWED",
+        "isBrowser": True,
+    },
+}

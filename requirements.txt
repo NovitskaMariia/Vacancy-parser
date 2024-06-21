@@ -1,0 +1,5 @@
+db-sqlite3==0.0.1
+pandas==2.2.2
+requests==2.27.1
+schedule==1.2.2
+aiogram==3.8.0
